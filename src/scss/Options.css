@@ -1,0 +1,15 @@
+.options {
+  background-color: #D9D9D9;
+  width: 20%;
+  border-right: solid 1px black;
+  padding: 0px;
+}
+.options ul {
+  padding: 0;
+  height: 100%;
+}
+.options ul li {
+  height: 12.5%;
+  list-style-type: none;
+  border-bottom: solid 1px black;
+}/*# sourceMappingURL=Options.css.map */
