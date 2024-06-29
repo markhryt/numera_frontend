@@ -17,8 +17,7 @@ export default function Add_file(props){
 
         display: props.display,      
       };
-    const image_path = "https://cdn-icons-png.flaticon.com/512/2270/2270665.png"
-    return (
+       return (
         <div style={divStyle} className='add_doc'>
             <h3 className='mb-5'>Drop your file Please</h3>
             <Button component="label" variant="contained">

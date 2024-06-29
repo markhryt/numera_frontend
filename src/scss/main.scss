@@ -1,10 +1,38 @@
 @import "./Navbar.scss";
-@import "./Options.scss";
 @import "./Bottom.scss";
 @import "./register.scss";
 @import "./add_doc.scss";
+@import "./about.scss";
+@import "./scan.scss";
+@import "./scanner.scss";
+@import "./downloadFile.scss";
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+html{
+  background: white
+}
 .app{
-    position: absolute;
-    top: 0px;
-    width: 100%;
+   /* main screen */
+    position: relative;
+    max-width: 100%;
+    height: 120%;
+    margin-left: auto;
+    margin-right: auto; 
+    background: linear-gradient(180deg, rgba(54, 181, 255, 0.2) 0%, #36B5FF 0.01%, #86D2FE 0.01%, #FDFDFD 100%);
+
+    .introduction{
+      position: relative;
+      top: 100px;
+      font-family: "Source Code Pro", monospace;
+      button{
+        background-color: white;
+        max-width: 187px;
+        height: 90px;
+        border-radius: 8px;
+      }
+    }
+    .why-us{
+      font-family: "Source Code Pro", monospace;
+      position: relative;
+      top: 100px;
+    }
   }

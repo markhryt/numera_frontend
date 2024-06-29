@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam&family=Merriweather&family=Montserrat:ital,wght@0,300;0,500;1,300&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 nav {
   width: 100%;
 }
 nav .navbar {
-  background-color: #D9D9D9;
-  border-bottom: solid 1px black;
+  background-color: linear-gradient(180deg, rgba(54, 181, 255, 0.2) 0%, #36B5FF);
+  border-bottom: solid 2px black;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Kalam", cursive;
 }
 nav img {
   width: 40%;
@@ -11,24 +16,42 @@ nav img {
 nav img:hover {
   cursor: pointer;
 }
+nav h1 {
+  width: 100%;
+}
 nav #sign-up-button {
   background-color: #D9D9D9;
 }
-
-.options {
-  background-color: #D9D9D9;
-  width: 20%;
-  border-right: solid 1px black;
-  padding: 0px;
+nav #register-button {
+  color: #FFFFFF;
+  background: #36B5FF;
+  margin-right: 5px;
+  border-radius: 8px;
+  width: 100px;
+  height: 48px;
+  padding: 8px 16px;
+  border: none;
+  align-self: center; /* Align the button vertically */
 }
-.options ul {
-  padding: 0;
-  height: 100%;
+nav #login-button {
+  background-color: white;
+  height: 40px;
+  width: 79px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  align-self: center; /* Align the button vertically */
 }
-.options ul li {
-  height: 12.5%;
+nav .authenticated ul {
+  display: flex;
   list-style-type: none;
-  border-bottom: solid 1px black;
+  align-items: center; /* Align the list items vertically */
+  justify-content: space-around;
+  padding: 0;
+  width: 100%; /* Make ul take up all the available space */
+  height: 100%; /* Adjust as needed */
+}
+nav .authenticated ul li {
+  margin: 5px;
 }
 
 .bottom {
@@ -43,8 +66,159 @@ nav #sign-up-button {
   height: 100%;
 }
 
-.app {
-  position: absolute;
-  top: 0px;
+#root {
+  background: linear-gradient(180deg, rgba(54, 181, 255, 0.2) 0%, #36B5FF 0.01%, #86D2FE 0.01%, #FDFDFD 100%);
+}
+
+#nav-filler {
+  background-color: linear-gradient(180deg, rgba(54, 181, 255, 0.2) 0%, #36B5FF);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.about-us {
+  background: linear-gradient(180deg, rgba(54, 181, 255, 0.2) 0%, #36B5FF 0.01%, #86D2FE 0.01%, #FDFDFD 100%);
+}
+.about-us #why-best li {
+  line-height: 2rem;
+}
+.about-us #ceo-words q {
+  line-height: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, [data-react-app=root] {
+  background-color: #eee;
+  font-family: "Open Sans", sans-serif;
   width: 100%;
+  height: 100vh;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  padding: 2rem;
+  overflow: auto;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 1px #ddd;
+  margin-bottom: 1rem;
+  max-width: 300px;
+  padding: 1rem 0;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+.card .most-popular {
+  font-size: 15px;
+  font-weight: 700;
+  background-color: #9b59b6;
+  color: #fff;
+  padding: 0.25em 1rem;
+  border-radius: 15px;
+  text-transform: uppercase;
+}
+.card.free {
+  border-top: 6px solid #1abc9c;
+}
+.card.basic {
+  border-top: 6px solid #3498db;
+}
+.card.medium {
+  border-top: 6px solid #9b59b6;
+}
+.card.pro {
+  border-top: 6px solid #f1c40f;
+}
+
+.card-description, .card-billing, .card-features, .card-action {
+  padding: 15px;
+}
+.card-description h2 {
+  font-size: 26px;
+  margin-bottom: 0.5rem;
+}
+.card-billing {
+  background-color: #ecf0f1;
+}
+.card-billing p {
+  margin-bottom: 0.5rem;
+}
+.card-billing .price {
+  font-size: 32px;
+  font-weight: 700;
+}
+.card-features {
+  min-height: 150px;
+}
+.card-features ul li {
+  margin-bottom: 0.5rem;
+}
+.card-action > button {
+  border: 3px solid #3498db;
+  background-color: transparent;
+  color: #3498db;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  width: 100%;
+  transition: 0.3s ease all;
+}
+.card-action > button:hover {
+  transition: 0.3s ease all;
+  background-color: #3498db;
+  color: #fff;
+}
+
+.upload-file-form {
+  position: relative;
+  top: 50%;
+}
+
+#downloadPage {
+  background-color: white;
+}
+#downloadPage a:hover {
+  cursor: pointer;
+}
+
+html {
+  background: white;
+}
+
+.app {
+  /* main screen */
+  position: relative;
+  max-width: 100%;
+  height: 120%;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(180deg, rgba(54, 181, 255, 0.2) 0%, #36B5FF 0.01%, #86D2FE 0.01%, #FDFDFD 100%);
+}
+.app .introduction {
+  position: relative;
+  top: 100px;
+  font-family: "Source Code Pro", monospace;
+}
+.app .introduction button {
+  background-color: white;
+  max-width: 187px;
+  height: 90px;
+  border-radius: 8px;
+}
+.app .why-us {
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  top: 100px;
 }/*# sourceMappingURL=main.css.map */

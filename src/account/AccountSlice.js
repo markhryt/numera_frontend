@@ -3,17 +3,18 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 export const getAccountInfo = createAsyncThunk(
   'account/info',
-  async (userData) => {
+  async () => {
+    const url = `http://localhost:3000/account/info`; // Append query string to URL
     try {
-        const response = await fetch("http://localhost:3000/account/info", {
+        const response = await fetch(url, {
             method: 'GET',
-
+            credentials: "include",
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userData),
         });
-        return response.data;
+        const data = await response.json(); // Ensure the response is parsed as JSON
+        return data; // Return the parsed data
     } catch (error) {
       throw Error(error.message);
     }
@@ -21,19 +22,24 @@ export const getAccountInfo = createAsyncThunk(
 );
 
 
+
 const AccountInfoSlice = createSlice({
   name: 'user_info',
   initialState: {
     loading: false,
-    error: null
+    error: null,
+    userData:{
+
+    }
   },
   extraReducers: (builder) => {
     builder
       .addCase(getAccountInfo.pending, (state) => {
         state.loading = true;
       })
-      .addCase(getAccountInfo.fulfilled, (state) => {
+      .addCase(getAccountInfo.fulfilled, (state, action) => {
         state.loading = false;
+        state.userData = action.payload;
       })
       .addCase(getAccountInfo.rejected, (state, action) => {
         state.loading = false;
@@ -43,3 +49,4 @@ const AccountInfoSlice = createSlice({
 });
 
 export default AccountInfoSlice.reducer;
+export const selectUserData = (state) => state.AccountSlice.userData

@@ -2,5 +2,14 @@
    position: relative;
    padding-top: 7%;
    height: 100%;
-   
+}
+
+#root{
+      background: linear-gradient(180deg, rgba(54, 181, 255, 0.2) 0%, #36B5FF 0.01%, #86D2FE 0.01%, #FDFDFD 100%);
+
+}
+#nav-filler{
+      background-color: linear-gradient(180deg, rgba(54, 181, 255, 0.2) 0%, #36B5FF );
+      padding-left: 20px;
+      padding-right: 20px;
 }

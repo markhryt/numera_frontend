@@ -12,11 +12,12 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as LinkTo } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 const defaultTheme = createTheme();
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   function handleSubmit(event){
     event.preventDefault();
     const userData = {
@@ -27,10 +28,12 @@ const Register = () => {
         last_name: event.target.last_name.value,
       };
     dispatch(registerUser(userData));
+    navigate('/login')
   }
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <span id='nav-filler'/>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

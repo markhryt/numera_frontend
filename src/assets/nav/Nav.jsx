@@ -1,43 +1,28 @@
 import React from 'react';
 import Add_file from '../add_doc/Add_Doc';
 import Authenticated from './Authenticated/Authenticated';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
 
   return (
     <nav className="text-center">
       <div className="navbar">
-        <div className="col-3">
-          <span></span>
+      <div class="dropdown col-1 text-center">
+        <h3 class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Our Services
+        </h3>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <Link class="dropdown-item" to="/scan_price">{">"} pricing</Link>
+          <Link class="dropdown-item" to = "/about">{">"} about us</Link>
+          <Link class="dropdown-item" to = "">{">"} FAQ</Link>
+          <Link class="dropdown-item" to = "">{">"} contact info</Link>
         </div>
-        <div className="brand col">
-          <h1>Numera</h1>
-        </div>
-        <div className="add col-2">
-          <button
-            className="btn btn-success btn-md"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasBottom"
-            aria-controls="offcanvasBottom"
-          >
-            ADD FILE
-          </button>
-        </div>
-
-        <Authenticated/>
       </div>
-      <div className="offcanvas offcanvas-bottom" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-        <div className="offcanvas-header">
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div className="offcanvas-body small">
-          <Add_file />
-        </div>
+
+      <div className="brand col-9 text-center">
+        <h1>Numera</h1>
+      </div>
+          <Authenticated className="col-2"/>
       </div>
     </nav>
   );

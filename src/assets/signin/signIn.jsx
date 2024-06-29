@@ -13,12 +13,13 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { signIn, signInCheck } from './signInSlice';
-import { Link as LinkTo } from 'react-router-dom';
+import { Link as LinkTo, useNavigate} from 'react-router-dom';
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+const navigate = useNavigate();
 const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,12 +28,19 @@ const dispatch = useDispatch();
         email: event.target.email.value,
         password: event.target.password.value,
       };
-    dispatch(signIn(userData));
-    dispatch(signInCheck());
+    if(userData.email && userData.password){
+      dispatch(signIn(userData));
+      dispatch(signInCheck());
+      navigate("/");
+    }else{
+      window.alert("Please Enter Valid Values");
+    }
+ 
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={defaultTheme} class="signup">
+      <span id='nav-filler'/>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -73,14 +81,16 @@ const dispatch = useDispatch();
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
+       
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+         
             <Grid container>
               <Grid item xs>
                 <Link variant="body2">

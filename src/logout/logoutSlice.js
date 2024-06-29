@@ -1,19 +1,19 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-export const registerUser = createAsyncThunk(
-  'auth/register',
-  async (userData) => {
+export const logoutuser = createAsyncThunk(
+  'auth/logout',
+  async () => {
     try {
-        const response = await fetch("http://localhost:3000/register", {
+        const response = await fetch("http://localhost:3000/logout", {
             method: 'POST',
-
+            credentials: 'include', // This is crucial for cookies
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userData),
         });
-        return response.data;
+        const data = await response.json(); // Assuming the server sends back JSON
+        return data;
     } catch (error) {
       throw Error(error.message);
     }
@@ -21,7 +21,8 @@ export const registerUser = createAsyncThunk(
 );
 
 
-const registerUserSlice = createSlice({
+
+const logoutSlice = createSlice({
   name: 'user_info',
   initialState: {
     loading: false,
@@ -29,18 +30,17 @@ const registerUserSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.pending, (state) => {
+      .addCase(logoutuser.pending, (state) => {
         state.loading = true;
       })
-      .addCase(registerUser.fulfilled, (state) => {
+      .addCase(logoutuser.fulfilled, (state) => {
         state.loading = false;
-        window.alert("Thank you for signing up!")
       })
-      .addCase(registerUser.rejected, (state, action) => {
+      .addCase(logoutuser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });
   }
 });
 
-export default registerUserSlice.reducer;
+export default logoutSlice.reducer;
